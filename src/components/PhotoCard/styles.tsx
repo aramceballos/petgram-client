@@ -5,6 +5,7 @@ export const Article = styled.article`
   min-height: 200px;
   border: 1px solid #dbdbdb;
   margin-bottom: 60px;
+  border-radius: 3px;
 `
 
 export const ImgWrapper = styled.div`

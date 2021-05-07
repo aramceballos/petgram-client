@@ -2,7 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 
 type Props = {
-  children: JSX.Element
+  children: JSX.Element[]
   description?: string
   title?: string
 }

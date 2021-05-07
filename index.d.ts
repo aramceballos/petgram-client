@@ -8,3 +8,9 @@ declare interface IPost {
   image_url: string
   description: string
 }
+
+declare interface ICategory {
+  id: number
+  category: string
+  image_url: string
+}
