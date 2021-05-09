@@ -8,12 +8,10 @@ type Props = {
   onClick: () => void
 }
 
-const LikeButton = ({ liked, onClick }: Props) => {
-  // const Icon = liked ? Heart : Heart
-
+const LikeButton = ({ onClick }: Props) => {
   return (
     <Button onClick={onClick}>
-      <Heart size="34px" />
+      <Heart size="38px" />
     </Button>
   )
 }

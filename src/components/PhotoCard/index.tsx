@@ -1,31 +1,28 @@
 import React from 'react'
-// import { FavButton } from '../FavButton'
-// import { ToggleLikeMutation } from '../../container/ToggleLikeMutation'
 import { Link } from 'react-router-dom'
+import { useGravatar } from '../../hooks/useGravatar'
 
 import LikeButton from '../LikeButton'
-// import { useNearScreen } from '../../hooks/useNearScreen'
-
-import { Article, ImgWrapper, Img } from './styles'
+import { Article, Header, Avatar, NameText, ImgWrapper, Img } from './styles'
 
 const DEFAULT_IMAGE =
   'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
 
-const PhotoCard = ({ id, image_url = DEFAULT_IMAGE }: IPost) => {
-  // const [show, element] = useNearScreen()
+const PhotoCard = ({ image_url = DEFAULT_IMAGE, username, email }: IPost) => {
+  const [avatarUrl] = useGravatar(email)
 
   return (
     <Article>
-      {/* {show && ( */}
-      <>
-        <Link to={`/detail/${id}`}>
-          <ImgWrapper>
-            <Img src={image_url} />
-          </ImgWrapper>
+      <Header>
+        <Link to={`/${username}`}>
+          <Avatar src={avatarUrl} alt={`${username}-avatar`} />
         </Link>
-        <LikeButton liked={false} onClick={() => {}} />
-      </>
-      {/* )} */}
+        <NameText to={`/${username}`}>{username}</NameText>
+      </Header>
+      <ImgWrapper>
+        <Img src={image_url} />
+      </ImgWrapper>
+      <LikeButton liked={false} onClick={() => {}} />
     </Article>
   )
 }

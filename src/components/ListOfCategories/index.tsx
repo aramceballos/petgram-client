@@ -30,6 +30,7 @@ const ListOfCategoriesComponent = ({ categories, loading }: Props) => {
           <Item>
             <Skeleton
               style={{ marginBottom: '25px' }}
+              animation="wave"
               variant="circle"
               width={68}
               height={68}
@@ -38,6 +39,7 @@ const ListOfCategoriesComponent = ({ categories, loading }: Props) => {
           <Item>
             <Skeleton
               style={{ marginBottom: '25px' }}
+              animation="wave"
               variant="circle"
               width={68}
               height={68}
@@ -46,6 +48,7 @@ const ListOfCategoriesComponent = ({ categories, loading }: Props) => {
           <Item>
             <Skeleton
               style={{ marginBottom: '25px' }}
+              animation="wave"
               variant="circle"
               width={68}
               height={68}
@@ -54,6 +57,7 @@ const ListOfCategoriesComponent = ({ categories, loading }: Props) => {
           <Item>
             <Skeleton
               style={{ marginBottom: '25px' }}
+              animation="wave"
               variant="circle"
               width={68}
               height={68}
@@ -63,7 +67,7 @@ const ListOfCategoriesComponent = ({ categories, loading }: Props) => {
       ) : (
         categories.map((category) => (
           <Item key={category.id}>
-            <Category {...category} path={`/pet/${category.id}`} />
+            <Category {...category} path={`/c/${category.id}`} />
           </Item>
         ))
       )}

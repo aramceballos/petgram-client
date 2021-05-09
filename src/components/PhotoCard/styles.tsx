@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
+
 import { fadeIn } from '../../styles/animation'
 
 export const Article = styled.article`
@@ -6,6 +8,27 @@ export const Article = styled.article`
   border: 1px solid #dbdbdb;
   margin-bottom: 60px;
   border-radius: 3px;
+`
+
+export const Header = styled.header`
+  display: flex;
+  align-items: center;
+  height: 60px;
+  padding: 16px;
+`
+
+export const Avatar = styled.img`
+  width: 32px;
+  border-radius: 50%;
+`
+
+export const NameText = styled(Link)`
+  text-decoration: none;
+  margin-left: 14px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `
 
 export const ImgWrapper = styled.div`

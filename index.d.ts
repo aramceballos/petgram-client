@@ -7,6 +7,9 @@ declare interface IPost {
   post_date: string
   image_url: string
   description: string
+  name: string
+  username: string
+  email: string
 }
 
 declare interface ICategory {

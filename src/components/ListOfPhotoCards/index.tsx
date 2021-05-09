@@ -13,16 +13,36 @@ const ListOfPhotoCardsComponent = ({ posts = [], loading }: Props) => {
   if (loading) {
     return (
       <div>
-        <Skeleton style={{ marginTop: '15px' }} variant="rect" height={200} />
-        <div style={{ display: 'flex', marginTop: '5px' }}>
-          <Skeleton variant="circle" width={30} height={30} />
-          {/* <Skeleton style={{ marginLeft: '10px' }} variant="text" width="80%" /> */}
+        <div style={{ display: 'flex', marginTop: '35px' }}>
+          <Skeleton animation="wave" variant="circle" width={30} height={30} />
+          <Skeleton
+            style={{ marginLeft: '10px' }}
+            animation="wave"
+            variant="text"
+            width="90%"
+          />
         </div>
-        <Skeleton style={{ marginTop: '15px' }} variant="rect" height={200} />
-        <div style={{ display: 'flex', marginTop: '5px' }}>
-          <Skeleton variant="circle" width={30} height={30} />
-          {/* <Skeleton style={{ marginLeft: '10px' }} variant="text" width="80%" /> */}
+        <Skeleton
+          style={{ marginTop: '15px' }}
+          animation="wave"
+          variant="rect"
+          height={200}
+        />
+        <div style={{ display: 'flex', marginTop: '35px' }}>
+          <Skeleton animation="wave" variant="circle" width={30} height={30} />
+          <Skeleton
+            style={{ marginLeft: '10px' }}
+            animation="wave"
+            variant="text"
+            width="90%"
+          />
         </div>
+        <Skeleton
+          style={{ marginTop: '15px' }}
+          animation="wave"
+          variant="rect"
+          height={200}
+        />
       </div>
     )
   }
