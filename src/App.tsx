@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import User from './pages/User'
 import Logo from './components/Logo'
 import GlobalStyles from './styles/GlobalStyles'
+import NavBar from './components/NavBar'
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route exact path="/" component={Home} />
         <Route exact path="/u" component={User} />
       </Switch>
+      <NavBar />
     </BrowserRouter>
   )
 }
