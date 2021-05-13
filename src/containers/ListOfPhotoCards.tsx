@@ -1,26 +1,10 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 
 import ListOfPhotoCardsComponent from '../components/ListOfPhotoCards'
-
-const usePostsData = () => {
-  const [posts, setPosts] = useState([])
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    setLoading(true)
-    fetch('http://localhost:5000/p')
-      .then((res) => res.json())
-      .then((response) => {
-        setPosts(response.data)
-        setLoading(false)
-      })
-  }, [])
-
-  return { posts, loading }
-}
+import { useGetRequest } from '../hooks/useRequest'
 
 const ListOfPhotoCards = () => {
-  const { posts, loading } = usePostsData()
+  const { data: posts, loading } = useGetRequest('/p')
 
   return <ListOfPhotoCardsComponent posts={posts} loading={loading} />
 }

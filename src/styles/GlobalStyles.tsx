@@ -36,7 +36,7 @@ body {
 #app {
     overflow-x: hidden;
     min-height: 100vh;
-    padding-bottom: 10px;
+    padding-bottom: 50px;
 }
 
 a  {

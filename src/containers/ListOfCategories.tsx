@@ -1,28 +1,17 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import ListOfCategoriesComponent from '../components/ListOfCategories'
-
-const useCategoriesData = () => {
-  const [categories, setCategories] = useState<ICategory[]>([])
-  const [loading, setLoading] = useState(false)
-
-  useEffect(() => {
-    setLoading(true)
-    fetch('http://localhost:5000/c')
-      .then((res) => res.json())
-      .then((response) => {
-        setCategories(response.data)
-        setLoading(false)
-      })
-  }, [])
-
-  return { categories, loading }
-}
+import { useGetRequest } from '../hooks/useRequest'
 
 const ListOfCategories = () => {
-  const { categories, loading } = useCategoriesData()
+  const { data: categories, loading } = useGetRequest('/c')
 
-  return <ListOfCategoriesComponent categories={categories} loading={loading} />
+  return (
+    <ListOfCategoriesComponent
+      categories={categories as ICategory[]}
+      loading={loading}
+    />
+  )
 }
 
 export default React.memo(ListOfCategories)
