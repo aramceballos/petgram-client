@@ -6,6 +6,10 @@ html {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+* {
+    scrollbar-width: 0;
+}
+
 *, *::before, *::after {
     box-sizing: inherit;
 }
@@ -31,6 +35,7 @@ body {
     margin: 0 auto;
     max-width: 500px;
     width: 100%;
+    margin-top: 49px;
 }
 
 #app {

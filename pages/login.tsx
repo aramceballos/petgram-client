@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 import { Alert } from '@material-ui/lab'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 import { useInputValue } from '../hooks/userInputValue'

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Link as LinkRouter } from 'react-router-dom'
+import LinkRouter from 'next/link'
 
 export const Link = styled(LinkRouter)`
   display: flex;

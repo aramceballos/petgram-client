@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { NavLink } from 'react-router-dom'
+import LinkRouter from 'next/link'
 
 export const Nav = styled.nav`
   align-items: center;
@@ -19,7 +19,7 @@ export const Nav = styled.nav`
   padding-bottom: env(safe-area-inset-bottom);
 `
 
-export const Link = styled(NavLink)`
+export const Link = styled(LinkRouter)`
   align-items: center;
   color: #888;
   display: inline-flex;

@@ -1,12 +1,12 @@
 import React from 'react'
 import Skeleton from '@material-ui/lab/Skeleton'
 
-import Photocard from '../PhotoCard'
+import PhotoCard from '../PhotoCard'
 import { List } from './styles'
 
 type Props = {
   posts: IPost[]
-  loading: boolean
+  loading?: boolean
 }
 
 const ListOfPhotoCardsComponent = ({ posts = [], loading }: Props) => {
@@ -62,7 +62,7 @@ const ListOfPhotoCardsComponent = ({ posts = [], loading }: Props) => {
   return (
     <List>
       {posts.map((post) => (
-        <Photocard key={post.id} {...post} />
+        <PhotoCard key={post.id} {...post} />
       ))}
     </List>
   )

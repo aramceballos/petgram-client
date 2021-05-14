@@ -7,29 +7,29 @@ import { Nav, Link } from './styles'
 const NavBar = () => (
   <Nav>
     <Link
-      exact
-      activeStyle={{
-        color: '#000',
-      }}
-      to="/"
+      // exact
+      // activeStyle={{
+      //   color: '#000',
+      // }}
+      href="/"
     >
       <Home size="32px" />
     </Link>
     <Link
-      exact
-      activeStyle={{
-        color: '#000',
-      }}
-      to="/f"
+      // exact
+      // activeStyle={{
+      //   color: '#000',
+      // }}
+      href="/f"
     >
       <Heart size="42px" />
     </Link>
     <Link
-      exact
-      activeStyle={{
-        color: '#000',
-      }}
-      to="/u"
+      // exact
+      // activeStyle={{
+      //   color: '#000',
+      // }}
+      href="/u"
     >
       <User size="40px" />
     </Link>

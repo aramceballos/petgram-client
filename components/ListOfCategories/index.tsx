@@ -6,10 +6,10 @@ import { List, Item } from './styles'
 
 type Props = {
   categories: ICategory[]
-  loading: boolean
+  loading?: boolean
 }
 
-const ListOfCategoriesComponent = ({ categories, loading }: Props) => {
+const ListOfCategoriesComponent = ({ categories = [], loading }: Props) => {
   const [showFixed, setShowFixed] = useState(false)
 
   useEffect(() => {
@@ -75,4 +75,4 @@ const ListOfCategoriesComponent = ({ categories, loading }: Props) => {
   )
 }
 
-export default React.memo(ListOfCategoriesComponent)
+export default ListOfCategoriesComponent
