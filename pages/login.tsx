@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import Link from 'next/link'
+import { useCookies } from 'react-cookie'
+// import Link from 'next/link'
 import styled from 'styled-components'
-import { Alert } from '@material-ui/lab'
+// import { Alert } from '@material-ui/lab'
 import axios from 'axios'
 
+import Layout from '../components/Layout'
 import { useInputValue } from '../hooks/userInputValue'
 
 const FormContainer = styled.div`
@@ -48,27 +50,24 @@ const Button = styled.button`
   }
 `
 
-const StyledLink = styled(Link)`
-  margin-top: 10px;
-  text-decoration: none;
-  color: #5050ff;
-  font-weight: 700;
-  text-align: right;
-  float: right;
-`
-
-type Props = {
-  setToken: (arg0: string) => void
-}
+// const StyledLink = styled(Link)`
+//   margin-top: 10px;
+//   text-decoration: none;
+//   color: #5050ff;
+//   font-weight: 700;
+//   text-align: right;
+//   float: right;
+// `
 
 type TCredentials = {
   identity: string
   password: string
 }
 
-const Login = ({ setToken }: Props) => {
+const Login = () => {
   const [loading] = useState(false)
-  const [errorMessage] = useState(null)
+  const [, setCookie] = useCookies(['t'])
+  // const [errorMessage] = useState(null)
 
   const identity = useInputValue('')
   const password = useInputValue('')
@@ -88,11 +87,13 @@ const Login = ({ setToken }: Props) => {
       identity: identity.value,
       password: password.value,
     })
-    setToken(token)
+    setCookie('t', token, {
+      sameSite: true,
+    })
   }
 
   return (
-    <>
+    <Layout title="Login">
       <Title>Log in</Title>
       <FormContainer>
         <Input
@@ -114,8 +115,8 @@ const Login = ({ setToken }: Props) => {
         </Button>
         {/* <StyledLink to="/signup">Sign up</StyledLink> */}
       </FormContainer>
-      {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
-    </>
+      {/* {errorMessage && <Alert severity="error">{errorMessage}</Alert>} */}
+    </Layout>
   )
 }
 

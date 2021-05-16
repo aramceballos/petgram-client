@@ -5,6 +5,11 @@ import Layout from '../components/Layout'
 import ListOfCategoriesComponent from '../components/ListOfCategories'
 import ListOfPhotoCardsComponent from '../components/ListOfPhotoCards'
 
+type Props = {
+  posts: IPost[]
+  categories: ICategory[]
+}
+
 export const getServerSideProps: GetStaticProps = async () => {
   const response1 = await fetch('http://localhost:5000/api/c')
   const response2 = await fetch('http://localhost:5000/api/p')
@@ -19,7 +24,7 @@ export const getServerSideProps: GetStaticProps = async () => {
   }
 }
 
-const Home = ({ posts, categories }) => {
+const Home = ({ posts, categories }: Props) => {
   return (
     <Layout title="Petgram - your favorite app for pets">
       <ListOfCategoriesComponent categories={categories} />
