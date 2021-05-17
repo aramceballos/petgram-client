@@ -29,7 +29,7 @@ const NavBar = () => (
       // activeStyle={{
       //   color: '#000',
       // }}
-      href="/u"
+      href="/user"
     >
       <User size="40px" />
     </Link>

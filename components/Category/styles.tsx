@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import LinkRouter from 'next/link'
 
-export const Link = styled(LinkRouter)`
+export const A = styled.a`
   display: flex;
   flex-direction: column;
   text-align: center;

@@ -19,9 +19,9 @@ const PhotoCard = ({ image_url = DEFAULT_IMAGE, username, email }: IPost) => {
             <Avatar src={avatarUrl} alt={`${username}-avatar`} />
           </a>
         </Link>
-        <NameText href={`/${username}`}>
-          <a>{username}</a>
-        </NameText>
+        <Link href={`/${username}`}>
+          <NameText>{username}</NameText>
+        </Link>
       </Header>
       <ImgWrapper>
         <Img src={image_url} />

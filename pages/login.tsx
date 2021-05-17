@@ -72,7 +72,7 @@ const Login = () => {
   const identity = useInputValue('')
   const password = useInputValue('')
 
-  async function loginUser(credentials: TCredentials) {
+  const loginUser = async (credentials: TCredentials) => {
     return axios('http://localhost:5000/api/login', {
       method: 'POST',
       headers: {
@@ -83,13 +83,18 @@ const Login = () => {
   }
 
   const handleSubmit = async () => {
-    const token = await loginUser({
-      identity: identity.value,
-      password: password.value,
-    })
-    setCookie('t', token, {
-      sameSite: true,
-    })
+    try {
+      const token = await loginUser({
+        identity: identity.value,
+        password: password.value,
+      })
+      setCookie('t', token, {
+        sameSite: true,
+      })
+      window.location.reload()
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (

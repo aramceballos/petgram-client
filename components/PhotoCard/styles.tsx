@@ -21,7 +21,7 @@ export const Avatar = styled.img`
   border-radius: 50%;
 `
 
-export const NameText = styled(Link)`
+export const NameText = styled.a`
   text-decoration: none;
   margin-left: 14px;
 
