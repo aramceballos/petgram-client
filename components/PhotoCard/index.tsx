@@ -24,7 +24,7 @@ const PhotoCard = ({ image_url = DEFAULT_IMAGE, username, email }: IPost) => {
         </Link>
       </Header>
       <ImgWrapper>
-        <Img src={image_url} />
+        <Img width={375} height={200} src={image_url} />
       </ImgWrapper>
       <LikeButton liked={false} onClick={() => {}} />
     </Article>

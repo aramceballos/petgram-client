@@ -4,6 +4,8 @@ import { useCookies } from 'react-cookie'
 import styled from 'styled-components'
 // import { Alert } from '@material-ui/lab'
 import axios from 'axios'
+import { IncomingMessage, ServerResponse } from 'http'
+import Cookies from 'cookies'
 
 import Layout from '../components/Layout'
 import { useInputValue } from '../hooks/userInputValue'
@@ -64,8 +66,30 @@ type TCredentials = {
   password: string
 }
 
+export const getServerSideProps = async ({
+  req,
+  res,
+}: {
+  req: IncomingMessage
+  res: ServerResponse
+}) => {
+  const cookies = new Cookies(req, res)
+  const token = cookies.get('t')
+
+  if (token) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/',
+      },
+    }
+  }
+
+  return { props: {} }
+}
+
 const Login = () => {
-  const [loading] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [, setCookie] = useCookies(['t'])
   // const [errorMessage] = useState(null)
 
@@ -84,6 +108,7 @@ const Login = () => {
 
   const handleSubmit = async () => {
     try {
+      setLoading(true)
       const token = await loginUser({
         identity: identity.value,
         password: password.value,
@@ -94,6 +119,7 @@ const Login = () => {
       window.location.reload()
     } catch (error) {
       console.error(error)
+      setLoading(false)
     }
   }
 

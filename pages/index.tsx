@@ -22,6 +22,15 @@ export const getServerSideProps = async ({
   const cookies = new Cookies(req, res)
   const token = cookies.get('t')
 
+  if (!token) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/login',
+      },
+    }
+  }
+
   let categories = []
   let posts = []
 
