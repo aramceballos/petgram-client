@@ -1,8 +1,8 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import Head from 'next/head'
 
 type Props = {
-  children: JSX.Element[]
+  children: React.ReactNode
   description?: string
   title?: string
 }
@@ -10,10 +10,10 @@ type Props = {
 const Layout = ({ children, title, description }: Props) => {
   return (
     <>
-      <Helmet>
+      <Head>
         {title && <title>{title} | Petgram</title>}
         {description && <meta name="description" content={description} />}
-      </Helmet>
+      </Head>
       {children}
     </>
   )

@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import { Container, Svg } from './styles'
 
-const Logo = (props) => {
+const Logo = () => {
   return (
     <Container>
       <Link href="/">
@@ -15,7 +15,6 @@ const Logo = (props) => {
               background: '0 0',
             }}
             preserveAspectRatio="xMidYMid"
-            {...props}
           >
             <defs>
               <linearGradient

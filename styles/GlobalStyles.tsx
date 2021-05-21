@@ -35,7 +35,7 @@ body {
     margin: 0 auto;
     max-width: 500px;
     width: 100%;
-    margin-top: 49px;
+    padding-top: 49px;
 }
 
 #app {

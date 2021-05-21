@@ -9,7 +9,7 @@ type Props = {
   loading?: boolean
 }
 
-const ListOfPhotoCardsComponent = ({ posts = [], loading }: Props) => {
+const ListOfPhotoCardsComponent = ({ posts, loading }: Props) => {
   if (loading) {
     return (
       <div>
@@ -61,9 +61,7 @@ const ListOfPhotoCardsComponent = ({ posts = [], loading }: Props) => {
 
   return (
     <List>
-      {posts.map((post) => (
-        <PhotoCard key={post.id} {...post} />
-      ))}
+      {posts && posts.map((post) => <PhotoCard key={post.id} {...post} />)}
     </List>
   )
 }

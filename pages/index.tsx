@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
 import Cookies from 'cookies'
+import { IncomingMessage, ServerResponse } from 'http'
+import { useCookies } from 'react-cookie'
 
 import Layout from '../components/Layout'
 import ListOfCategoriesComponent from '../components/ListOfCategories'
 import ListOfPhotoCardsComponent from '../components/ListOfPhotoCards'
-import { IncomingMessage, ServerResponse } from 'http'
 
 type Props = {
   posts: IPost[]
@@ -77,6 +78,22 @@ export const getServerSideProps = async ({
 }
 
 const Home = ({ categories, posts }: Props) => {
+  const [, setCookie] = useCookies(['t'])
+
+  useEffect(() => {
+    if (
+      !window.localStorage.getItem('userInfo-id') ||
+      !window.localStorage.getItem('userInfo-name') ||
+      !window.localStorage.getItem('userInfo-username')
+    ) {
+      window.localStorage.removeItem('userInfo-id')
+      window.localStorage.removeItem('userInfo-name')
+      window.localStorage.removeItem('userInfo-username')
+      setCookie('t', '')
+      window.location.reload()
+    }
+  }, [])
+
   return (
     <Layout title="Petgram - your favorite app for pets">
       <ListOfCategoriesComponent categories={categories} />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
 // import Link from 'next/link'
 import styled from 'styled-components'
@@ -93,6 +93,12 @@ const Login = () => {
   const [, setCookie] = useCookies(['t'])
   // const [errorMessage] = useState(null)
 
+  useEffect(() => {
+    window.localStorage.removeItem('userInfo-id')
+    window.localStorage.removeItem('userInfo-name')
+    window.localStorage.removeItem('userInfo-username')
+  }, [])
+
   const identity = useInputValue('')
   const password = useInputValue('')
 
@@ -109,13 +115,16 @@ const Login = () => {
   const handleSubmit = async () => {
     try {
       setLoading(true)
-      const token = await loginUser({
+      const userInfo = await loginUser({
         identity: identity.value,
         password: password.value,
       })
-      setCookie('t', token, {
+      setCookie('t', userInfo.token, {
         sameSite: true,
       })
+      window.localStorage.setItem('userInfo-id', userInfo.id)
+      window.localStorage.setItem('userInfo-name', userInfo.name)
+      window.localStorage.setItem('userInfo-username', userInfo.username)
       window.location.reload()
     } catch (error) {
       console.error(error)
