@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
-// import Link from 'next/link'
 import styled from 'styled-components'
-// import { Alert } from '@material-ui/lab'
-import axios from 'axios'
+import { Alert } from '@material-ui/lab'
 import { IncomingMessage, ServerResponse } from 'http'
 import Cookies from 'cookies'
 
@@ -52,20 +50,6 @@ const Button = styled.button`
   }
 `
 
-// const StyledLink = styled(Link)`
-//   margin-top: 10px;
-//   text-decoration: none;
-//   color: #5050ff;
-//   font-weight: 700;
-//   text-align: right;
-//   float: right;
-// `
-
-type TCredentials = {
-  identity: string
-  password: string
-}
-
 export const getServerSideProps = async ({
   req,
   res,
@@ -91,7 +75,7 @@ export const getServerSideProps = async ({
 const Login = () => {
   const [loading, setLoading] = useState(false)
   const [, setCookie] = useCookies(['t'])
-  // const [errorMessage] = useState(null)
+  const [errorMessage, setErrorMessage] = useState('')
 
   useEffect(() => {
     window.localStorage.removeItem('userInfo-id')
@@ -102,32 +86,28 @@ const Login = () => {
   const identity = useInputValue('')
   const password = useInputValue('')
 
-  const loginUser = async (credentials: TCredentials) => {
-    return axios('http://localhost:5000/api/login', {
+  const handleSubmit = async () => {
+    setLoading(true)
+    const response = await fetch('http://localhost:5000/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      data: JSON.stringify(credentials),
-    }).then((res) => res.data.data)
-  }
-
-  const handleSubmit = async () => {
-    try {
-      setLoading(true)
-      const userInfo = await loginUser({
+      body: JSON.stringify({
         identity: identity.value,
         password: password.value,
-      })
-      setCookie('t', userInfo.token, {
+      }),
+    }).then((res) => res.json())
+    if (response.status === 'success') {
+      setCookie('t', response.data.token, {
         sameSite: true,
       })
-      window.localStorage.setItem('userInfo-id', userInfo.id)
-      window.localStorage.setItem('userInfo-name', userInfo.name)
-      window.localStorage.setItem('userInfo-username', userInfo.username)
+      window.localStorage.setItem('userInfo-id', response.data.id)
+      window.localStorage.setItem('userInfo-name', response.data.name)
+      window.localStorage.setItem('userInfo-username', response.data.username)
       window.location.reload()
-    } catch (error) {
-      console.error(error)
+    } else {
+      setErrorMessage('Incorrect username or password')
       setLoading(false)
     }
   }
@@ -155,7 +135,7 @@ const Login = () => {
         </Button>
         {/* <StyledLink to="/signup">Sign up</StyledLink> */}
       </FormContainer>
-      {/* {errorMessage && <Alert severity="error">{errorMessage}</Alert>} */}
+      {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
     </Layout>
   )
 }
