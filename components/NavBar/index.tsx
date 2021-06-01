@@ -17,8 +17,11 @@ const NavBar = () => {
       <Link href="/">
         <Home color={router.pathname === '/' ? '#000' : '#888'} size="32px" />
       </Link>
-      <Link href="/f">
-        <Heart color={router.pathname === '/f' ? '#000' : '#888'} size="42px" />
+      <Link href="/favorites">
+        <Heart
+          color={router.pathname === '/favorites' ? '#000' : '#888'}
+          size="42px"
+        />
       </Link>
       <Link href="/user">
         <User

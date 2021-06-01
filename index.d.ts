@@ -10,6 +10,13 @@ declare interface IPost {
   name: string
   username: string
   email: string
+  likes: ILike[]
+}
+
+declare interface ILike {
+  id: number
+  user_id: number
+  post_id: number
 }
 
 declare interface ICategory {
