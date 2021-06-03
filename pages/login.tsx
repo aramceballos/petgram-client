@@ -7,6 +7,7 @@ import Cookies from 'cookies'
 
 import Layout from '../components/Layout'
 import { useInputValue } from '../hooks/userInputValue'
+import Link from 'next/link'
 
 const FormContainer = styled.div`
   padding: 14px 15px;
@@ -48,6 +49,18 @@ const Button = styled.button`
     background: #7502d1;
     cursor: pointer;
   }
+`
+
+const Text = styled.p`
+  text-align: center;
+  font-size: 14px;
+  margin-top: 30px;
+  color: #262626;
+`
+
+const StyledLink = styled.a`
+  color: #0095f6;
+  font-weight: 600;
 `
 
 export const getServerSideProps = async ({
@@ -113,7 +126,7 @@ const Login = () => {
   }
 
   return (
-    <Layout title="Login">
+    <Layout title="Log in">
       <Title>Log in</Title>
       <FormContainer>
         <Input
@@ -133,7 +146,12 @@ const Login = () => {
         <Button onClick={handleSubmit} disabled={loading}>
           Log In
         </Button>
-        {/* <StyledLink to="/signup">Sign up</StyledLink> */}
+        <Text>
+          Don't have an account yet?{' '}
+          <Link href="/signup">
+            <StyledLink>Sign up</StyledLink>
+          </Link>
+        </Text>
       </FormContainer>
       {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
     </Layout>
