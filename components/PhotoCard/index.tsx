@@ -35,8 +35,6 @@ const PhotoCard = ({
     const like =
       likes &&
       likes.some((like: ILike) => like.user_id === parseInt(userId as string))
-    console.log(likes)
-    // console.log(userId as string)
     if (like) {
       setLiked(true)
     }
@@ -48,7 +46,7 @@ const PhotoCard = ({
 
     if (!liked) {
       const response = await fetch(
-        `http://localhost:5000/api/p/l?user_id=${userId}&post_id=${id}`,
+        `http://localhost:5000/api/p/l?post_id=${id}`,
         {
           method: 'POST',
           headers: {
@@ -59,14 +57,13 @@ const PhotoCard = ({
       ).then((res) => res.json())
       if (response.status === 'success') {
         setLoading(false)
-        console.log('liked')
       } else {
-        console.log('error on like')
+        console.error('error on like')
         setLoading(false)
       }
     } else {
       const response = await fetch(
-        `http://localhost:5000/api/p/ul?user_id=${userId}&post_id=${id}`,
+        `http://localhost:5000/api/p/ul?post_id=${id}`,
         {
           method: 'POST',
           headers: {
@@ -77,9 +74,8 @@ const PhotoCard = ({
       ).then((res) => res.json())
       if (response.status === 'success') {
         setLoading(false)
-        console.log('liked')
       } else {
-        console.log('error on like')
+        console.error('error on like')
         setLoading(false)
       }
     }
