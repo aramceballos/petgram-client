@@ -4,9 +4,9 @@ import Cookies from 'cookies'
 import { IncomingMessage, ServerResponse } from 'http'
 import { useCookies } from 'react-cookie'
 
-import Layout from '../components/Layout'
 import ListOfCategoriesComponent from '../components/ListOfCategories'
 import ListOfPhotoCardsComponent from '../components/ListOfPhotoCards'
+import Head from 'next/head'
 
 type Props = {
   posts: IPost[]
@@ -95,10 +95,14 @@ const Home = ({ categories, posts }: Props) => {
   }, [])
 
   return (
-    <Layout title="Petgram - your favorite app for pets">
+    <>
+      <Head>
+        <title>Petgram</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <ListOfCategoriesComponent categories={categories} />
       <ListOfPhotoCardsComponent posts={posts} />
-    </Layout>
+    </>
   )
 }
 
