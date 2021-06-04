@@ -36,6 +36,25 @@ const Name = styled.h1`
   font-size: 14px;
 `
 
+const Button = styled.button`
+  border-radius: 3px;
+  color: #d80000;
+  height: 32px;
+  display: block;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #c7c7c7;
+
+  &[disabled] {
+    opacity: 0.3;
+  }
+
+  &:hover {
+    background: #e4e4e4;
+    cursor: pointer;
+  }
+`
+
 export const getServerSideProps = async ({
   req,
   res,
@@ -79,6 +98,14 @@ const User = () => {
     }
   }, [])
 
+  const handleClick = () => {
+    window.localStorage.removeItem('userInfo-id')
+    window.localStorage.removeItem('userInfo-name')
+    window.localStorage.removeItem('userInfo-username')
+    setCookie('t', '')
+    window.location.reload()
+  }
+
   return (
     <Layout title="User">
       <div>
@@ -97,6 +124,7 @@ const User = () => {
         <NameContainer>
           <Name>{name}</Name>
         </NameContainer>
+        <Button onClick={handleClick}>Log out</Button>
       </div>
     </Layout>
   )
