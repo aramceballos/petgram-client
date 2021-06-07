@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import { Alert } from '@material-ui/lab'
 
 import Layout from '../components/Layout'
 import { useInputValue } from '../hooks/userInputValue'
@@ -49,6 +50,7 @@ const Button = styled.button`
 const Signup = () => {
   const [loading, setLoading] = useState(false)
   const [fieldsAreValid, setFieldsAreValid] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
   const email = useInputValue('')
   const name = useInputValue('')
@@ -86,6 +88,9 @@ const Signup = () => {
     if (response.status === 'success') {
       window.location.assign('/login')
     } else {
+      if (response.message === 'user already exists') {
+        setErrorMessage('Email or Username is already in use')
+      }
       setLoading(false)
     }
   }
@@ -134,6 +139,7 @@ const Signup = () => {
           Sign up
         </Button>
       </FormContainer>
+      {errorMessage && <Alert severity="error">{errorMessage}</Alert>}
     </Layout>
   )
 }
