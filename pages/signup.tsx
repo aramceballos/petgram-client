@@ -96,7 +96,7 @@ const Signup = () => {
       <FormContainer>
         <Input
           type="text"
-          placeholder="Type email or username"
+          placeholder="Email"
           {...email}
           disabled={loading}
           onKeyDown={(ev) =>
