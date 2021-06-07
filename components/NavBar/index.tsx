@@ -8,7 +8,7 @@ import { Nav, Link } from './styles'
 const NavBar = () => {
   const router = useRouter()
 
-  if (router.pathname === '/login') {
+  if (router.pathname === '/login' || router.pathname === '/signup') {
     return <></>
   }
 
