@@ -1,11 +1,17 @@
 import styled from 'styled-components'
 
-export const A = styled.a`
+type TContainer = {
+  onClick: () => void
+}
+
+export const Container = styled.div<TContainer>`
   display: flex;
   flex-direction: column;
   text-align: center;
   text-decoration: none;
   width: 68px;
+  cursor: pointer;
+  border-radius: 50%;
 `
 export const Image = styled.img`
   border: 1px solid #ddd;

@@ -68,7 +68,7 @@ const ListOfCategoriesComponent = ({ categories, loading }: Props) => {
         categories &&
         categories.map((category) => (
           <Item key={category.id}>
-            <Category {...category} path={`/c/${category.id}`} />
+            <Category {...category} />
           </Item>
         ))
       )}
