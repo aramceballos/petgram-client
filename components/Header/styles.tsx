@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  display: flex;
+  justify-content: center;
   position: fixed;
   max-width: 500px;
   width: 100%;
