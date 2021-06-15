@@ -5,9 +5,9 @@ import styled from 'styled-components'
 import { useCookies } from 'react-cookie'
 import axios from 'axios'
 import { GetServerSideProps } from 'next'
+import Link from 'next/link'
 
 import Layout from '../components/Layout'
-import Link from 'next/link'
 
 type Props = {
   userInfo: IUser
@@ -103,11 +103,14 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   }
 
   try {
-    const res = await axios(`http://localhost:5000/api/p/${userInfo.id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    const res = await axios(
+      `http://localhost:5000/api/p?user_id=${userInfo.id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
     userPosts = res.data.data
   } catch (error) {
     if (
