@@ -24,3 +24,10 @@ declare interface ICategory {
   category: string
   image_url: string
 }
+
+declare interface IUser {
+  id: number
+  email: string
+  name: string
+  username: string
+}
