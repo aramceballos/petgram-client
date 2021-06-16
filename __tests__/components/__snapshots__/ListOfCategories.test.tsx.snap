@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ListOfCategories /> should render correctly with data 1`] = `ShallowWrapper {}`;
+
+exports[`<ListOfCategories /> should render correctly with no data 1`] = `ShallowWrapper {}`;

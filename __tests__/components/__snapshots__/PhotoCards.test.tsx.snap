@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PhotoCard /> should render correctly with no data 1`] = `ShallowWrapper {}`;
