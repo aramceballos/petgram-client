@@ -21,7 +21,7 @@ const PhotoCard = ({
   username,
   likes,
 }: IPost) => {
-  const [loading, setLoading] = useState(false)
+  const [, setLoading] = useState(false)
   const [userId, setUserId] = useState('')
   const [liked, setLiked] = useState(false)
   const [cookies] = useCookies(['t'])
