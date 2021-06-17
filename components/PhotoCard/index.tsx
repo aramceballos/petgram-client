@@ -14,6 +14,7 @@ import {
   Button,
   LikedBy,
   UserLink,
+  Description,
 } from './styles'
 
 const DEFAULT_IMAGE =
@@ -24,6 +25,7 @@ const PhotoCard = ({
   image_url = DEFAULT_IMAGE,
   username,
   likes,
+  description,
 }: IPost) => {
   const [, setLoading] = useState(false)
   const [userId, setUserId] = useState('')
@@ -165,6 +167,13 @@ const PhotoCard = ({
             {likes && likes.length > 1 && <> and others</>}
           </LikedBy>
         )}
+
+        <Description>
+          <Link href={`/${username}`}>
+            <UserLink>{username}</UserLink>
+          </Link>{' '}
+          {description}
+        </Description>
       </BottomSection>
     </Article>
   )

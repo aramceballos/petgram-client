@@ -66,8 +66,13 @@ export const Button = styled.button`
 
 export const LikedBy = styled.div`
   font-size: 14px;
+  margin-bottom: 8px;
 `
 
 export const UserLink = styled.a`
   font-weight: 600;
+`
+
+export const Description = styled.div`
+  font-size: 14px;
 `
