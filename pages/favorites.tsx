@@ -4,6 +4,7 @@ import { IncomingMessage, ServerResponse } from 'http'
 import Cookies from 'cookies'
 import styled from 'styled-components'
 import Link from 'next/link'
+import Layout from '../components/Layout'
 
 const Container = styled.div`
   display: grid;
@@ -79,15 +80,17 @@ export const getServerSideProps = async ({
 
 const Favorites = ({ posts }: Props) => {
   return (
-    <Container>
-      {posts.map((post) => (
-        <ImageWrapper key={post.id}>
-          <Link href={`/post/${post.id}`}>
-            <Image src={post.image_url} alt={post.username + '-image'} />
-          </Link>
-        </ImageWrapper>
-      ))}
-    </Container>
+    <Layout title="Favorites">
+      <Container>
+        {posts.map((post) => (
+          <ImageWrapper key={post.id}>
+            <Link href={`/post/${post.id}`}>
+              <Image src={post.image_url} alt={post.username + '-image'} />
+            </Link>
+          </ImageWrapper>
+        ))}
+      </Container>
+    </Layout>
   )
 }
 
