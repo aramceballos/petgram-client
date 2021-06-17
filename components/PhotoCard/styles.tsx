@@ -47,10 +47,14 @@ export const Img = styled.img`
   width: 100%;
 `
 
+export const BottomSection = styled.div`
+  padding: 0 16px;
+`
+
 export const Button = styled.button`
   display: flex;
   align-items: center;
-  padding: 8px 0 8px 8px;
+  padding: 8px 0;
   & svg {
     margin-right: 4px;
   }
@@ -58,4 +62,12 @@ export const Button = styled.button`
   &:hover {
     cursor: pointer;
   }
+`
+
+export const LikedBy = styled.div`
+  font-size: 14px;
+`
+
+export const UserLink = styled.a`
+  font-weight: 600;
 `
