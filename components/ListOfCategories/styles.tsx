@@ -4,9 +4,15 @@ export const List = styled.ul`
   display: flex;
   overflow: scroll;
   width: 100%;
-  border: 1px solid #dbdbdb;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
   padding: 16px 0;
-  border-radius: 3px;
+  background-color: #fafafa;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+  &::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
 `
 
 export const Item = styled.li`

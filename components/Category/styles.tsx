@@ -5,17 +5,14 @@ type TContainer = {
 }
 
 export const Container = styled.div<TContainer>`
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  text-decoration: none;
-  width: 68px;
-  cursor: pointer;
   border-radius: 50%;
+  background: linear-gradient(45deg, orange, #962b96);
+  padding: 2px;
+  width: 72px;
+  height: 72px;
 `
 export const Image = styled.img`
-  border: 1px solid #ddd;
-  box-shadow: 0px 10px 14px rgba(0, 0, 0, 0.2);
+  border: 2px solid #fff;
   border-radius: 50%;
   height: auto;
   overflow: hidden;
