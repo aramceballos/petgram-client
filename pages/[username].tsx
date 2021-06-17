@@ -94,12 +94,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     userInfo = res.data.data
   } catch (error) {
     if (
-      error.response.data.message === 'Missing or malformed JWT' ||
-      error.response.data.message === 'Invalid or expired JWT'
+      error.response?.data?.message === 'Missing or malformed JWT' ||
+      error.response?.data?.message === 'Invalid or expired JWT'
     ) {
       cookies.set('t')
     }
-    console.error(error.response.data.message)
+    console.error(error.response?.data?.message)
   }
 
   try {
@@ -114,12 +114,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
     userPosts = res.data.data
   } catch (error) {
     if (
-      error.response.data.message === 'Missing or malformed JWT' ||
-      error.response.data.message === 'Invalid or expired JWT'
+      error.response?.data?.message === 'Missing or malformed JWT' ||
+      error.response?.data?.message === 'Invalid or expired JWT'
     ) {
       cookies.set('t')
     }
-    console.error(error.response.data.message)
+    console.error(error.response?.data?.message)
   }
 
   return {
