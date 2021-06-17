@@ -12,6 +12,7 @@ export const Container = styled.div<TContainer>`
   height: 72px;
 `
 export const Image = styled.img`
+  background-color: #fff;
   border: 2px solid #fff;
   border-radius: 50%;
   height: auto;
