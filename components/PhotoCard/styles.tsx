@@ -77,4 +77,10 @@ export const UserLink = styled.a`
 
 export const Description = styled.div`
   font-size: 14px;
+  margin-bottom: 8px;
+`
+
+export const PostDateText = styled.time`
+  color: #8e8e8e;
+  font-size: 10px;
 `

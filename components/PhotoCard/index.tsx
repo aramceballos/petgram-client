@@ -15,10 +15,31 @@ import {
   LikedBy,
   UserLink,
   Description,
+  PostDateText,
 } from './styles'
 
 const DEFAULT_IMAGE =
   'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60'
+
+const parseDate = (date: string): string => {
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ]
+
+  const [year, month, day] = date.split(' ')[0].split('-')
+  return `${months[parseInt(month) - 1]} ${day}, ${year}`
+}
 
 const PhotoCard = ({
   id,
@@ -26,6 +47,7 @@ const PhotoCard = ({
   username,
   likes,
   description,
+  post_date,
 }: IPost) => {
   const [, setLoading] = useState(false)
   const [userId, setUserId] = useState('')
@@ -174,6 +196,7 @@ const PhotoCard = ({
           </Link>{' '}
           {description}
         </Description>
+        <PostDateText dateTime={post_date}>{parseDate(post_date)}</PostDateText>
       </BottomSection>
     </Article>
   )
