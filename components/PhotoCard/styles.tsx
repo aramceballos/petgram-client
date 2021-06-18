@@ -23,6 +23,7 @@ export const Avatar = styled.img`
 export const NameText = styled.a`
   text-decoration: none;
   margin-left: 14px;
+  cursor: pointer;
 
   &:hover {
     text-decoration: underline;
@@ -71,6 +72,7 @@ export const LikedBy = styled.div`
 
 export const UserLink = styled.a`
   font-weight: 600;
+  cursor: pointer;
 `
 
 export const Description = styled.div`
