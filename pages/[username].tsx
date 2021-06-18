@@ -52,18 +52,17 @@ const PostsContainer = styled.div`
 
 const ImageWrapper = styled.div`
   width: 100%;
-
-  &:before {
-    content: '';
-    float: left;
-    padding-top: 100%;
-  }
+  position: relative;
+  padding-top: 100%;
 `
 
 const Img = styled.img`
   object-fit: cover;
   height: 100%;
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 `
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
