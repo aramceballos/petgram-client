@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import { fadeIn } from '../../styles/animation'
+import { fadeIn, bounce } from '../../styles/animation'
 
 export const Article = styled.article`
   min-height: 200px;
@@ -46,6 +46,22 @@ export const Img = styled.img`
   position: absolute;
   top: 0;
   width: 100%;
+`
+
+export const HeartContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const Heart = styled.svg`
+  ${bounce()}
+  opacity: 0;
 `
 
 export const BottomSection = styled.div`
