@@ -17,6 +17,18 @@ export const ModalContainer = styled.div`
   top: 0;
   background-color: #464646;
   z-index: 1000;
+  animation: 0.2s scaleIn ease;
+
+  @keyframes scaleIn {
+    from {
+      transform: scale(0.85);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 `
 
 export const Container = styled.header`
