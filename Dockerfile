@@ -8,7 +8,7 @@ RUN yarn
 
 COPY [".", "/usr/src/app/"]
 
-RUN npm run build
+RUN yarn build
 
 EXPOSE 3000
 
