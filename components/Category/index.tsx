@@ -20,7 +20,7 @@ const Category = ({ image_url = DEFAULT_IMAGE, id }: ICategory) => {
 
     try {
       setLoading(true)
-      const res = await axios('http://localhost:5000/api/p', {
+      const res = await axios('https://api.petgram.club/api/p', {
         headers: {
           Authorization: `Bearer ${token}`,
         },

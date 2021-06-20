@@ -83,7 +83,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   try {
     const res = await axios(
-      `http://localhost:5000/api/u?username=${context?.params?.username}`,
+      `https://api.petgram.club/api/u?username=${context?.params?.username}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -103,7 +103,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   try {
     const res = await axios(
-      `http://localhost:5000/api/p?user_id=${userInfo.id}`,
+      `https://api.petgram.club/api/p?user_id=${userInfo.id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

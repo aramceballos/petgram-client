@@ -21,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   try {
     const res = await axios(
-      `http://localhost:5000/api/p/individual/${context?.params?.id}`,
+      `https://api.petgram.club/api/p/individual/${context?.params?.id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

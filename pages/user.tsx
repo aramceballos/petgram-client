@@ -144,11 +144,14 @@ const User = () => {
 
   const getPosts = async () => {
     try {
-      const res = await axios(`http://localhost:5000/api/p?user_id=${userId}`, {
-        headers: {
-          Authorization: `Bearer ${token.t}`,
-        },
-      })
+      const res = await axios(
+        `https://api.petgram.club/api/p?user_id=${userId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token.t}`,
+          },
+        }
+      )
       setUserPosts(res.data.data)
     } catch (error) {
       if (
