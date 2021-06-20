@@ -32,6 +32,14 @@ export const Link = styled(LinkRouter)`
   width: 100%;
 `
 
+export const A = styled.a`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+`
+
 export const ImageContainer = styled.div<TImageContianer>`
   border-radius: 50%;
   border: ${({ showBorder }) =>
