@@ -44,6 +44,10 @@ const Story = ({
   if (!open) return null
 
   useEffect(() => {
+    document.body.style.position = 'fixed'
+  }, [])
+
+  useEffect(() => {
     const jumpToNextStory = setTimeout(() => {
       onNext()
     }, 5000)
