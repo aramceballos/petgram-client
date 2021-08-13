@@ -36,7 +36,7 @@ export const getServerSideProps = async ({
   let posts = []
 
   try {
-    const res = await axios('https://api.petgram.club/api/c', {
+    const res = await axios('http://localhost:5000/api/categories', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -53,7 +53,7 @@ export const getServerSideProps = async ({
   }
 
   try {
-    const res = await axios('https://api.petgram.club/api/p', {
+    const res = await axios('http://localhost:5000/api/posts', {
       headers: {
         Authorization: `Bearer ${token}`,
       },

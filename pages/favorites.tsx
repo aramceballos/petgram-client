@@ -54,7 +54,7 @@ export const getServerSideProps = async ({
   let posts = []
 
   try {
-    const res = await axios(`https://api.petgram.club/api/p/f`, {
+    const res = await axios(`http://localhost:5000/api/posts/favorites`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

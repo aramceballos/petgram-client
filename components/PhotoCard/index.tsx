@@ -92,7 +92,7 @@ const PhotoCard = ({
 
   const getUserById = async (id: number) => {
     try {
-      const res = await axios(`https://api.petgram.club/api/u?id=${id}`, {
+      const res = await axios(`http://localhost:5000/api/user?id=${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -115,7 +115,7 @@ const PhotoCard = ({
 
     if (!liked) {
       const response = await fetch(
-        `https://api.petgram.club/api/p/l?post_id=${id}`,
+        `http://localhost:5000/api/like?post_id=${id}`,
         {
           method: 'POST',
           headers: {
@@ -132,7 +132,7 @@ const PhotoCard = ({
       }
     } else {
       const response = await fetch(
-        `https://api.petgram.club/api/p/ul?post_id=${id}`,
+        `http://localhost:5000/api/unlike?post_id=${id}`,
         {
           method: 'POST',
           headers: {
@@ -154,7 +154,7 @@ const PhotoCard = ({
     if (!liked) {
       setLiked(true)
       const response = await fetch(
-        `https://api.petgram.club/api/p/l?post_id=${id}`,
+        `http://localhost:5000/api/like?post_id=${id}`,
         {
           method: 'POST',
           headers: {

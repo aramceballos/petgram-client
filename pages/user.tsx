@@ -145,7 +145,7 @@ const User = () => {
   const getPosts = async () => {
     try {
       const res = await axios(
-        `https://api.petgram.club/api/p?user_id=${userId}`,
+        `http://localhost:5000/api/posts?user_id=${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token.t}`,

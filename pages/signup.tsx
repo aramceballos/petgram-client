@@ -73,7 +73,7 @@ const Signup = () => {
 
   const handleSubmit = async () => {
     setLoading(true)
-    const response = await fetch('https://api.petgram.club/api/signup', {
+    const response = await fetch('http://localhost:5000/api/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
