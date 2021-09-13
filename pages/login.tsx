@@ -99,9 +99,9 @@ const Login = () => {
   const identity = useInputValue('')
   const password = useInputValue('')
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     setLoading(true)
-    const response = await fetch('http://localhost:5000/api/login', {
+    fetch('http://localhost:5000/api/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -110,19 +110,26 @@ const Login = () => {
         identity: identity.value,
         password: password.value,
       }),
-    }).then((res) => res.json())
-    if (response.status === 'success') {
-      setCookie('t', response.data.token, {
-        sameSite: true,
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === 'success') {
+          setCookie('t', res.data.token, {
+            sameSite: true,
+          })
+          window.localStorage.setItem('userInfo-id', res.data.id)
+          window.localStorage.setItem('userInfo-name', res.data.name)
+          window.localStorage.setItem('userInfo-username', res.data.username)
+          window.location.reload()
+        } else {
+          setErrorMessage('Incorrect username or password')
+          setLoading(false)
+        }
       })
-      window.localStorage.setItem('userInfo-id', response.data.id)
-      window.localStorage.setItem('userInfo-name', response.data.name)
-      window.localStorage.setItem('userInfo-username', response.data.username)
-      window.location.reload()
-    } else {
-      setErrorMessage('Incorrect username or password')
-      setLoading(false)
-    }
+      .catch(() => {
+        setErrorMessage('Error on login')
+        setLoading(false)
+      })
   }
 
   return (
