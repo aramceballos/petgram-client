@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.1.2 (September 19, 2021)
+
+- Fix scroll block after close story
+
 ## 1.1.1 (September 14, 2021)
 
 - Fix scroll when story is closed
