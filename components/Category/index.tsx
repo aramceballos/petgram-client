@@ -44,6 +44,8 @@ const Category = ({ image_url = DEFAULT_IMAGE, id }: ICategory) => {
 
   const handleClose = () => {
     setOpen(false)
+
+    document.body.style.position = ''
   }
 
   const handleNext = () => {
