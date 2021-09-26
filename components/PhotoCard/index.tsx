@@ -92,7 +92,7 @@ const PhotoCard = ({
 
   const getUserById = async (id: number) => {
     try {
-      const res = await axios(`http://localhost:5000/api/user?id=${id}`, {
+      const res = await axios(`https://petgram-api-aram.herokuapp.com/api/user?id=${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -115,7 +115,7 @@ const PhotoCard = ({
 
     if (!liked) {
       const response = await fetch(
-        `http://localhost:5000/api/like?post_id=${id}`,
+        `https://petgram-api-aram.herokuapp.com/api/like?post_id=${id}`,
         {
           method: 'POST',
           headers: {
@@ -132,7 +132,7 @@ const PhotoCard = ({
       }
     } else {
       const response = await fetch(
-        `http://localhost:5000/api/unlike?post_id=${id}`,
+        `https://petgram-api-aram.herokuapp.com/api/unlike?post_id=${id}`,
         {
           method: 'POST',
           headers: {
@@ -154,7 +154,7 @@ const PhotoCard = ({
     if (!liked) {
       setLiked(true)
       const response = await fetch(
-        `http://localhost:5000/api/like?post_id=${id}`,
+        `https://petgram-api-aram.herokuapp.com/api/like?post_id=${id}`,
         {
           method: 'POST',
           headers: {

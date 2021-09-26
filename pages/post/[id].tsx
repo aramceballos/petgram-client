@@ -21,7 +21,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   try {
     const res = await axios(
-      `http://localhost:5000/api/post/${context?.params?.id}`,
+      `https://petgram-api-aram.herokuapp.com/api/post/${context?.params?.id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,

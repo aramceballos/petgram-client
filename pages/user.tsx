@@ -145,7 +145,7 @@ const User = () => {
   const getPosts = async () => {
     try {
       const res = await axios(
-        `http://localhost:5000/api/posts?user_id=${userId}`,
+        `https://petgram-api-aram.herokuapp.com/api/posts?user_id=${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token.t}`,
