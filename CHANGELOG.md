@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.2.0 (September 25, 2021)
+
+- Fix story on desktop
+- Update api url
+
 ## 1.1.2 (September 19, 2021)
 
 - Fix scroll block after close story
