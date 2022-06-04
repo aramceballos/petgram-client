@@ -1,5 +1,9 @@
 # Change Log
 
+## 1.2.1 (June 4, 2022)
+
+- Email validation on signup was added
+
 ## 1.2.0 (September 25, 2021)
 
 - Fix story on desktop
