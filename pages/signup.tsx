@@ -77,18 +77,21 @@ const Signup = () => {
 
   const handleSubmit = async () => {
     setLoading(true)
-    const response = await fetch('http://localhost:5000/api/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: email.value,
-        name: name.value,
-        username: userName.value,
-        password: password.value,
-      }),
-    }).then((res) => res.json())
+    const response = await fetch(
+      'https://petgram-api-aram.herokuapp.com/api/signup',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email.value,
+          name: name.value,
+          username: userName.value,
+          password: password.value,
+        }),
+      }
+    ).then((res) => res.json())
     if (response.status === 'success') {
       window.location.assign('/login')
     } else {
