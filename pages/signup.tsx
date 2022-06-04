@@ -57,9 +57,13 @@ const Signup = () => {
   const userName = useInputValue('')
   const password = useInputValue('')
 
+  const re =
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
   useEffect(() => {
     if (
       !email.value ||
+      !re.test(email.value) ||
       !name.value ||
       !userName.value ||
       !password.value ||
@@ -73,7 +77,7 @@ const Signup = () => {
 
   const handleSubmit = async () => {
     setLoading(true)
-    const response = await fetch('https://petgram-api-aram.herokuapp.com/api/signup', {
+    const response = await fetch('http://localhost:5000/api/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -100,10 +104,19 @@ const Signup = () => {
       <Title>Sign up</Title>
       <FormContainer>
         <Input
-          type="text"
+          type="email"
           placeholder="Email"
           {...email}
           disabled={loading}
+          onBlur={() => {
+            if (email.value) {
+              if (!re.test(email.value)) {
+                setErrorMessage('Email is not valid')
+              } else {
+                setErrorMessage('')
+              }
+            }
+          }}
           onKeyDown={(ev) =>
             ev.key === 'Enter' && fieldsAreValid && handleSubmit()
           }
